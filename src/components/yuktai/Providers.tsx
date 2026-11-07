@@ -53,7 +53,7 @@ export default function Providers({ children }: { children: ReactNode }) {
 
   if (!config.features.accessibility) return <>{children}</>;
   return (
-    <YuktAIWrapper position={config.widget.position} launcher showAccessibility showPageTools={config.features.pageTools} engine={config.engine} voiceLang="te-IN">
+    <YuktAIWrapper position={config.widget.position} launcher showVibeCoder showRag showAgent showAccessibility showPageTools={config.features.pageTools} engine={config.engine} voiceLang="te-IN">
       {children}
     </YuktAIWrapper>
   );
