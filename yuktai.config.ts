@@ -8,7 +8,7 @@ const config = {
   theme: {
     accent: "blue", // blue | violet | teal | orange (colours in src/styles/tokens.css)
     color: "#000633", // browser bar and installed-app colour
-    picker: false, // 🎨 lets visitors pick a colour; contrast is kept at 7:1 or more
+    picker: true, // 🎨 lets visitors pick a colour; contrast is kept at 7:1 or more
     localFonts: true, // visitors can use fonts installed on their computer (desktop Chrome and Edge)
   },
 
@@ -17,9 +17,9 @@ const config = {
     ask: true, // "Ask this page" panel, Ctrl + K. Answers come from the page itself.
     pwa: true, // Install button (always shown until installed), works offline
     backToTop: true, // ↑ Back to top button, bottom right
-    splash: false, // loading screen: logo and "Welcome" in 7 languages, once per tab
-    preferences: false, // 🌐 button: site language (English + 6 Indian languages) and animations (Device setting / Off / Calm / Lively)
-    pageTools: false, // QA report page and the 🛠 button: 15 WCAG checks, copilot, form review
+    splash: true, // loading screen: logo and "Welcome" in 7 languages, once per tab
+    preferences: true, // 🌐 button: site language (English + 6 Indian languages) and animations (Device setting / Off / Calm / Lively)
+    pageTools: true, // QA report page and the 🛠 button: 15 WCAG checks, copilot, form review
     grid: false, // data grid page: 25 lakh sample rows, search, sort
     backend: false, // Python API (FastAPI) in backend/: starts with npm run dev
     icons: false, // icons guide: every YuktAI icon, copy the code
@@ -29,7 +29,7 @@ const config = {
   grid: {
     assistant: true, // "Ask or type a command": search, sort, filter, summary, unusual values
     voice: true, // 🎤 talk to the grid
-    language: "en-IN", // assistant and voice language: en-IN or any of the 22 Indian languages (te-IN, hi-IN, ta-IN…)
+    language: "te-IN", // assistant and voice language: en-IN or any of the 22 Indian languages (te-IN, hi-IN, ta-IN…)
     webmcp: true, // let browser AI agents use 11 grid tools (Chrome with WebMCP on)
   },
 
@@ -46,7 +46,7 @@ const config = {
   api: { url: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000" },
 
   // "rust": Rust compiled to WebAssembly (falls back to TypeScript if it is not built)
-  engine: "ts" as "rust" | "ts",
+  engine: "rust" as "rust" | "ts",
 
   widget: { position: "left" as "left" | "right" },
 };

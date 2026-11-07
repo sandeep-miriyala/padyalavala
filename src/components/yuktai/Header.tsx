@@ -16,8 +16,8 @@ import NavMenu from "./NavMenu";
 
 export default function Header() {
   const path = usePathname();
-  const { t } = useUiText(APP_TEXT);
-  const lang = "te"; // this site is Telugu only
+  const { t, lang: picked } = useUiText(APP_TEXT);
+  const lang = picked === "en" ? "te" : picked; // this site is Telugu first
   const here = (href: string) => {
     const page = href.split("#")[0];
     return page === "/" ? path === "/" : path.startsWith(page);

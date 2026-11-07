@@ -36,10 +36,7 @@ export const POEMS: NavGroup = {
 const ALL: NavItem[] = [
   { href: "/", label: "Home", key: "home" },
   POEMS, // ▾ submenu
-  { href: "/grid/", label: "Data grid", key: "grid", feature: "grid" },
   AGENTIC, // ▾ submenu
-  { href: "/qa/", label: "QA report", key: "qa", feature: "pageTools" },
-  { href: "/icons/", label: "Icons", key: "icons", feature: "icons" },
   { href: "/about/", label: "About", key: "about" },
 ];
 
@@ -50,4 +47,5 @@ export const LINKS = {
   yuktai: "https://www.npmjs.com/package/@yuktishaalaa/yuktai",
   askPage: "https://www.npmjs.com/package/@yuktishaalaa/ask-page",
   docs: "https://yuktaidocs.netlify.app",
+  github: "https://github.com/sandeep-miriyala/yuktai",
 };

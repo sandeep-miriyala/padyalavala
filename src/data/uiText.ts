@@ -18,6 +18,16 @@ const TE = {
   copy: "కాపీ",
   copied: "కాపీ అయింది",
   loading: "లోడ్ అవుతోంది",
+  skipIntro: "దాటవేయి",
+  settings: "భాష, యానిమేషన్లు",
+  language: "భాష",
+  motion: "యానిమేషన్లు",
+  motionAuto: "పరికరం సెట్టింగ్",
+  motionOff: "ఆఫ్",
+  motionCalm: "నెమ్మదిగా",
+  motionLively: "ఉత్సాహంగా",
+  saved: "ఈ బ్రౌజర్‌లో మాత్రమే సేవ్ అవుతుంది.",
+  uiNote: "మెనూలు, బటన్లు ఎంచుకున్న భాషలో మారతాయి. పద్యాలు తెలుగులోనే.",
 };
 
 export const APP_TEXT: UiText = { en: TE, te: TE };

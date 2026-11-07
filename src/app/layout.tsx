@@ -13,6 +13,9 @@ import "@/styles/globals.css";
 
 const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+// First visit: menus and buttons in Telugu. After that, the visitor's own choice (🌐 button) is kept.
+const TELUGU_FIRST = `try{if(!localStorage.getItem("padyalavala-lang")){localStorage.setItem("yuktai-ui-lang","te");localStorage.setItem("padyalavala-lang","1")}document.documentElement.setAttribute("data-ui-lang",localStorage.getItem("yuktai-ui-lang")||"en")}catch(e){}`;
+
 export const metadata: Metadata = {
   title: { default: config.title, template: `%s · ${config.title}` },
   description: config.description,
@@ -33,12 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="te" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT + LOOK_SCRIPT + MOTION_SCRIPT + SPLASH_SCRIPT + INSTALL_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: TELUGU_FIRST + THEME_SCRIPT + LOOK_SCRIPT + MOTION_SCRIPT + SPLASH_SCRIPT + INSTALL_SCRIPT }} />
       </head>
       <body>
         {/* Loading screen: your logo and "Welcome" in 7 languages, once per tab */}
         {config.features.splash && (
-          <YuktaiSplash title={config.title} minMs={config.splash.seconds * 1000} tips={config.splash.tips} logo={<span className="splash-brand"><Logo size={88} /><strong>{config.title}</strong></span>} />
+          <YuktaiSplash title={config.title} words={["స్వాగతం", "సుస్వాగతం"]} minMs={config.splash.seconds * 1000} tips={config.splash.tips} logo={<span className="splash-brand"><Logo size={88} /><strong>{config.title}</strong></span>} />
         )}
         <a className="skip" href="#main">విషయానికి వెళ్ళండి</a>
         <Providers>
@@ -47,7 +50,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <footer className="footer">
             <div className="wrap footer-in">
               <span>{config.title} · మిరియాల కుటుంబం పద్యాలు</span>
-              <span><a href={LINKS.docs}>YuktAI తో తయారైంది</a></span>
+              <span>
+                <a href={LINKS.github}>YuktAI</a>: సందీప్ మిరియాల రూపొందించిన ఓపెన్-సోర్స్ టూల్‌కిట్‌తో తయారైంది · <a href={LINKS.docs}>డాక్స్</a>
+              </span>
             </div>
           </footer>
           {config.features.backToTop && <BackToTop />}

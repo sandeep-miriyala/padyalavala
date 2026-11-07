@@ -11,19 +11,19 @@ const DARK_BG = "#08081a";
 export const TARGET = 7;
 
 export const PRESETS = [
-  { name: "Brand blue", color: "#0038b4" },
-  { name: "Violet", color: "#4a1fb8" },
-  { name: "Teal", color: "#0f5e59" },
-  { name: "Green", color: "#065f46" },
-  { name: "Saffron", color: "#9a3412" },
-  { name: "Crimson", color: "#9f1239" },
+  { name: "నీలం", color: "#0038b4" },
+  { name: "ఊదా", color: "#4a1fb8" },
+  { name: "నెమలి పచ్చ", color: "#0f5e59" },
+  { name: "ఆకుపచ్చ", color: "#065f46" },
+  { name: "కాషాయం", color: "#9a3412" },
+  { name: "ఎరుపు", color: "#9f1239" },
 ];
 
 // Font stacks that need nothing downloaded: each uses fonts most computers and phones already have.
 export const FONT_PRESETS = [
-  { name: "Default", font: "" },
-  { name: "Easy to read (Verdana)", font: 'Verdana, Tahoma, "Noto Sans", sans-serif' },
-  { name: "Serif", font: 'Georgia, "Noto Serif", "Times New Roman", serif' },
+  { name: "సాధారణం", font: "" },
+  { name: "సులువుగా చదివేది (Verdana)", font: 'Verdana, Tahoma, "Noto Sans", sans-serif' },
+  { name: "సెరిఫ్", font: 'Georgia, "Noto Serif", "Times New Roman", serif' },
   { name: "తెలుగు", font: '"Noto Sans Telugu", Gautami, "Nirmala UI", "Telugu Sangam MN", sans-serif' },
   { name: "हिन्दी / देवनागरी", font: '"Noto Sans Devanagari", "Nirmala UI", Mangal, "Kohinoor Devanagari", sans-serif' },
   { name: "தமிழ்", font: '"Noto Sans Tamil", Latha, "Nirmala UI", "Tamil Sangam MN", sans-serif' },

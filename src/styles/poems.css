@@ -12,3 +12,7 @@
 .poem-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: auto; }
 .poem-actions .btn { min-height: 44px; padding: 0 14px; font-size: .95rem; }
 .poem-note { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: .9rem; }
+.note-box { margin: 0 0 20px; padding: 12px 16px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--panel); }
+.btn svg { flex: none; }
+.built { margin-top: 40px; }
+.built h2 { margin: 0 0 8px; }

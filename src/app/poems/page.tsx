@@ -14,6 +14,7 @@ export default function PoemsPage() {
     bookTitle: BOOKS.find((b) => b.id === p.book)?.title ?? p.book,
     title: p.title,
     first: p.lines.find(Boolean) ?? "",
+    lines: p.lines.filter(Boolean).length,
   }));
 
   return (
@@ -21,6 +22,7 @@ export default function PoemsPage() {
       <p className="kicker">పద్యాలు</p>
       <h1>అన్ని పద్యాలు</h1>
       <p className="lead">{rows.length} పద్యాలు, {BOOKS.length} సంపుటాలు. శీర్షికతో గానీ పదంతో గానీ వెతకండి; పద్యం మీద నొక్కితే తెరుచుకుంటుంది.</p>
+      <p className="note-box">🤖 <strong>గ్రిడ్ AI సహాయకుడు:</strong> “మిరా పద్యాలు”, “రత్నాలబాల”, “పెద్ద పద్యాలు”, “ఎన్ని పద్యాలు”, “అన్ని పద్యాలు” అని టైప్ చేయండి లేదా 🎤 తో చెప్పండి. వెతుకులాట, వరుస Rust (WebAssembly) లో జరుగుతాయి.</p>
 
       <ul className="cards">
         {BOOKS.map((b, i) => (

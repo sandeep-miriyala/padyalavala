@@ -8,8 +8,8 @@ import { APP_TEXT } from "@/data/uiText";
 /** "Back to top": bottom right, appears after you scroll down. Moves focus to the top too. */
 export default function BackToTop() {
   const [show, setShow] = useState(false);
-  const { t } = useUiText(APP_TEXT);
-  const lang = "te"; // this site is Telugu only
+  const { t, lang: picked } = useUiText(APP_TEXT);
+  const lang = picked === "en" ? "te" : picked; // this site is Telugu first
 
   useEffect(() => {
     let frame = 0;

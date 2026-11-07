@@ -64,19 +64,19 @@ export default function LookPicker() {
     const p = paletteFor(color);
     setNote(
       p.changed
-        ? `Made a little darker so text stays readable: ${p.ratioLight.toFixed(1)}:1 light, ${p.ratioDark.toFixed(1)}:1 dark.`
-        : `Readable: ${p.ratioLight.toFixed(1)}:1 light, ${p.ratioDark.toFixed(1)}:1 dark.`,
+        ? `అక్షరాలు స్పష్టంగా కనిపించేలా కొంచెం ముదురు చేశాం: లేత థీమ్ ${p.ratioLight.toFixed(1)}:1, చీకటి థీమ్ ${p.ratioDark.toFixed(1)}:1.`
+        : `స్పష్టంగా ఉంది: లేత థీమ్ ${p.ratioLight.toFixed(1)}:1, చీకటి థీమ్ ${p.ratioDark.toFixed(1)}:1.`,
     );
     save({ ...look, color });
   };
 
   const loadLocal = async () => {
     try {
-      setNote("Your browser will ask before it shares the font list with this page.");
+      setNote("ఫాంట్ల జాబితా ఇచ్చే ముందు మీ బ్రౌజర్ మిమ్మల్ని అడుగుతుంది.");
       setLocal(await localFontFamilies());
       setNote("");
     } catch {
-      setNote("Fonts on this computer were not shared. You can still use the fonts above.");
+      setNote("ఈ కంప్యూటర్ ఫాంట్లు అందలేదు. పైన ఉన్న ఫాంట్లు వాడవచ్చు.");
     }
   };
 
@@ -91,17 +91,17 @@ export default function LookPicker() {
         className="icon-btn"
         aria-expanded={open}
         aria-controls={id}
-        aria-label="Colour and font"
-        title="Colour and font"
+        aria-label="రంగు, ఫాంట్"
+        title="రంగు, ఫాంట్"
         onClick={() => setOpen((o) => !o)}
       >
         <PaletteIcon size={20} aria-hidden="true" />
       </button>
 
       {open && (
-        <div ref={panel} id={id} className="look-panel" role="dialog" aria-label="Colour and font">
+        <div ref={panel} id={id} className="look-panel" role="dialog" aria-label="రంగు, ఫాంట్">
           <fieldset className="look-colors">
-            <legend>Colour</legend>
+            <legend>రంగు</legend>
             {PRESETS.map((p) => (
               <label key={p.color} title={p.name}>
                 <input type="radio" name={`${id}-c`} checked={current === p.color} onChange={() => pickColor(p.color)} />
@@ -111,14 +111,14 @@ export default function LookPicker() {
             ))}
             <label className="look-custom">
               <input type="color" value={look.color ?? PRESETS[0].color} onChange={(e) => pickColor(e.target.value)} />
-              <span>Any colour</span>
+              <span>ఏ రంగైనా</span>
             </label>
           </fieldset>
 
           <label className="field">
-            <span>Font</span>
+            <span>ఫాంట్</span>
             <select
-              value={look.fontName && !FONT_PRESETS.some((f) => f.name === look.fontName) ? "__local" : look.fontName ?? "Default"}
+              value={look.fontName && !FONT_PRESETS.some((f) => f.name === look.fontName) ? "__local" : look.fontName ?? FONT_PRESETS[0].name}
               onChange={(e) => {
                 const f = FONT_PRESETS.find((x) => x.name === e.target.value);
                 if (f) save({ ...look, font: f.font || undefined, fontName: f.font ? f.name : undefined });
@@ -132,12 +132,12 @@ export default function LookPicker() {
           </label>
 
           {localOk && !local && (
-            <button type="button" className="btn" onClick={loadLocal}>Use a font from this computer</button>
+            <button type="button" className="btn" onClick={loadLocal}>ఈ కంప్యూటర్‌లోని ఫాంట్ వాడండి</button>
           )}
           {local && (
             <div className="look-local">
               <label className="field">
-                <span>Fonts on this computer ({local.length})</span>
+                <span>ఈ కంప్యూటర్‌లోని ఫాంట్లు ({local.length})</span>
                 <input type="search" value={filter} onChange={(e) => setFilter(e.target.value)} placeholder="Gautami, Nirmala…" />
               </label>
               <ul>
@@ -152,8 +152,8 @@ export default function LookPicker() {
             </div>
           )}
 
-          <p className="hint" role="status">{note || `Any colour you pick is kept at ${TARGET}:1 contrast or more. Saved in this browser only.`}</p>
-          <button type="button" className="btn" onClick={() => { setNote(""); save({}); }}>Reset</button>
+          <p className="hint" role="status">{note || `మీరు ఎంచుకునే ఏ రంగైనా ${TARGET}:1 కాంట్రాస్ట్ కంటే తక్కువ కాదు. ఈ బ్రౌజర్‌లో మాత్రమే సేవ్ అవుతుంది.`}</p>
+          <button type="button" className="btn" onClick={() => { setNote(""); save({}); }}>మొదటిలా చేయండి</button>
         </div>
       )}
     </div>
