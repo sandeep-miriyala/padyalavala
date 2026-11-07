@@ -3,10 +3,9 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <section className="wrap">
-      <p className="kicker">404</p>
-      <h1>This page is not here</h1>
-      <p className="lead">It may have moved. Go back home, or press Ctrl + K to ask.</p>
-      <p><Link className="btn primary" href="/">Home</Link></p>
+      <h1>ఈ పేజీ లేదు</h1>
+      <p className="lead">ఇది వేరే చోటుకు మారి ఉండవచ్చు. మొదటి పేజీకి వెళ్ళండి, లేదా Ctrl + K నొక్కి అడగండి.</p>
+      <p><Link className="btn primary" href="/">మొదటి పేజీ</Link></p>
     </section>
   );
 }

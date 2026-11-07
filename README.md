@@ -1,4 +1,4 @@
-# రత్నాలబాల పద్యాలు
+# పద్యాలవాల
 
 రత్నాలబాల – జ్ఞానమాల (మిరియాల వెంకటరత్నం) and మిరా పద్యాలు (డాక్టర్ మిరియాల రామకృష్ణ): Telugu poems for everyone, on any phone or computer. Built only with YuktAI (`@yuktishaalaa/yuktai`, `@yuktishaalaa/ask-page`) on Next.js.
 

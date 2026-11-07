@@ -1,5 +1,6 @@
 // Poems from content/<book>/*.md, read once at build time (static export: no server, no database).
-// Each file: a "title:" line between --- lines, then the poem. Add a poem by adding a .md file.
+// Each file: "title:" (and optional "order:" for the book order) between --- lines, then the poem.
+// Add a poem by adding a .md file.
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
@@ -20,7 +21,7 @@ export const BOOKS: Book[] = [
     id: "mira",
     title: "మిరా పద్యాలు",
     author: "డాక్టర్ మిరియాల రామకృష్ణ",
-    about: "తెలుగు భాష గొప్పతనాన్ని, తియ్యదనాన్ని పాడే పద్యాలు.",
+    about: "తెలుగు భాష, ప్రకృతి, పిల్లల లోకం మీద పాటలు, పద్యాలు.",
   },
 ];
 
@@ -28,11 +29,12 @@ export const getBook = (id: string) => BOOKS.find((b) => b.id === id);
 
 const collator = new Intl.Collator("te");
 
-function parse(text: string): { title: string; lines: string[] } {
+function parse(text: string): { title: string; order: number; lines: string[] } {
   const m = text.replace(/^﻿/, "").match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
   const head = m ? m[1] : "";
   const body = m ? m[2] : text;
   const title = head.match(/^title:\s*(.+)$/m)?.[1].trim().replace(/^["']|["']$/g, "") ?? "";
+  const order = Number(head.match(/^order:\s*(\d+)/m)?.[1] ?? 0);
   const lines = body
     .split(/\r?\n/)
     .map((l) => l.trim())
@@ -40,7 +42,7 @@ function parse(text: string): { title: string; lines: string[] } {
     .replace(/\n{3,}/g, "\n\n")
     .trim()
     .split("\n");
-  return { title, lines };
+  return { title, order, lines };
 }
 
 export function getPoems(book: BookId): Poem[] {
@@ -49,7 +51,8 @@ export function getPoems(book: BookId): Poem[] {
     .filter((f) => f.endsWith(".md"))
     .map((f) => ({ file: f, ...parse(readFileSync(join(dir, f), "utf8")) }))
     .map((p) => ({ ...p, title: p.title || p.file.replace(/\.md$/, "") }))
-    .sort((a, b) => collator.compare(a.title, b.title))
+    // book order first ("order:"), then by title
+    .sort((a, b) => a.order - b.order || collator.compare(a.title, b.title))
     .map((p, i) => ({ id: `${book}-${i + 1}`, book, title: p.title, lines: p.lines }));
 }
 

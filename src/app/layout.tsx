@@ -31,7 +31,7 @@ export const viewport: Viewport = { themeColor: config.theme.color };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="te" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT + LOOK_SCRIPT + MOTION_SCRIPT + SPLASH_SCRIPT + INSTALL_SCRIPT }} />
       </head>
@@ -40,14 +40,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {config.features.splash && (
           <YuktaiSplash title={config.title} minMs={config.splash.seconds * 1000} tips={config.splash.tips} logo={<span className="splash-brand"><Logo size={88} /><strong>{config.title}</strong></span>} />
         )}
-        <a className="skip" href="#main">Skip to content</a>
+        <a className="skip" href="#main">విషయానికి వెళ్ళండి</a>
         <Providers>
           <Header />
           <main id="main" tabIndex={-1}>{children}</main>
           <footer className="footer">
             <div className="wrap footer-in">
-              <span>{config.title} · built with YuktAI</span>
-              <span><a href={LINKS.docs}>YuktAI docs</a></span>
+              <span>{config.title} · మిరియాల కుటుంబం పద్యాలు</span>
+              <span><a href={LINKS.docs}>YuktAI తో తయారైంది</a></span>
             </div>
           </footer>
           {config.features.backToTop && <BackToTop />}

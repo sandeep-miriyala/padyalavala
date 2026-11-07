@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { InstallIcon } from "@yuktishaalaa/yuktai/icons";
 import { useUiText } from "@yuktishaalaa/yuktai/experience";
+import { APP_TEXT } from "@/data/uiText";
 
 type InstallPrompt = Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: string }> };
 type InstallWindow = Window & { __yuktaiInstall?: InstallPrompt | null };
@@ -14,14 +15,14 @@ function howToInstall(): string[] {
   const android = /Android/.test(ua);
   const firefox = /Firefox|FxiOS/.test(ua);
   const safariMac = /Macintosh/.test(ua) && /Safari/.test(ua) && !/Chrome|Chromium|Edg/.test(ua);
-  if (ios) return ["Tap the Share button (the square with an arrow).", "Choose “Add to Home Screen”, then “Add”."];
-  if (android && firefox) return ["Open the browser menu ⋮.", "Choose “Install” or “Add to Home screen”."];
-  if (android) return ["Open the browser menu ⋮.", "Choose “Install app” or “Add to Home screen”."];
-  if (safariMac) return ["In the menu bar choose File → “Add to Dock”."];
-  if (firefox) return ["Firefox on computers can't install web apps yet.", "Open this site in Chrome, Edge or Safari to install it."];
+  if (ios) return ["Share బటన్ (బాణం ఉన్న చతురస్రం) నొక్కండి.", "“Add to Home Screen”, తర్వాత “Add” ఎంచుకోండి."];
+  if (android && firefox) return ["బ్రౌజర్ మెనూ ⋮ తెరవండి.", "“Install” లేదా “Add to Home screen” ఎంచుకోండి."];
+  if (android) return ["బ్రౌజర్ మెనూ ⋮ తెరవండి.", "“Install app” లేదా “Add to Home screen” ఎంచుకోండి."];
+  if (safariMac) return ["మెనూలో File → “Add to Dock” ఎంచుకోండి."];
+  if (firefox) return ["కంప్యూటర్‌లోని Firefox లో ఇంకా యాప్‌గా పెట్టుకోలేము.", "Chrome, Edge లేదా Safari లో తెరిచి పెట్టుకోండి."];
   return [
-    "Look for the install icon at the right end of the address bar, or",
-    "open the browser menu ⋮ → “Cast, save and share” → “Install page as app” (Chrome) or Apps → “Install this site as an app” (Edge).",
+    "అడ్రస్ బార్ కుడి చివర ఉన్న install గుర్తు నొక్కండి, లేదా",
+    "బ్రౌజర్ మెనూ ⋮ → “Cast, save and share” → “Install page as app” (Chrome), లేదా Apps → “Install this site as an app” (Edge).",
   ];
 }
 
@@ -37,7 +38,7 @@ const installed = () =>
  */
 export default function InstallButton() {
   const [ready, setReady] = useState(false);
-  const { t } = useUiText();
+  const { t } = useUiText(APP_TEXT);
   const [prompt, setPrompt] = useState<InstallPrompt | null>(null);
   const [steps, setSteps] = useState<string[] | null>(null);
   const button = useRef<HTMLButtonElement>(null);
@@ -92,11 +93,11 @@ export default function InstallButton() {
         <span>{t("installApp")}</span>
       </button>
       {steps && (
-        <div className="install-help" role="dialog" aria-label="Install this app">
-          <strong>Install this app</strong>
+        <div className="install-help" role="dialog" aria-label="ఈ యాప్‌ను పెట్టుకోండి">
+          <strong>ఈ యాప్‌ను పెట్టుకోండి</strong>
           <ol>{steps.map((s) => <li key={s}>{s}</li>)}</ol>
-          <p className="hint">It opens like an app and works offline after the first visit.</p>
-          <button type="button" className="btn" onClick={() => { setSteps(null); button.current?.focus(); }}>Close</button>
+          <p className="hint">ఇది యాప్ లాగా తెరుచుకుంటుంది. ఒకసారి తెరిచాక ఇంటర్నెట్ లేకపోయినా పనిచేస్తుంది.</p>
+          <button type="button" className="btn" onClick={() => { setSteps(null); button.current?.focus(); }}>మూసివేయండి</button>
         </div>
       )}
     </div>

@@ -4,37 +4,34 @@ import { BOOKS, getPoems } from "@/lib/poems";
 
 export const metadata: Metadata = { title: "గురించి" };
 
-const STACK: [string, string][] = [
-  ["Framework", "Next.js (static export: plain files on GitHub Pages)"],
-  ["Toolkit", "@yuktishaalaa/yuktai: grid, accessibility, icons, languages"],
-  ["Ask this page", "@yuktishaalaa/ask-page: answers from the page, on the device"],
-  ["Poems", "content/<book>/*.md, read at build time"],
+const HOW: [string, string][] = [
+  ["తయారీ", "YuktAI (మా సొంత ఓపెన్-సోర్స్ టూల్‌కిట్), Next.js"],
+  ["పద్యాలు", "ప్రతి పద్యం ఒక చిన్న టెక్స్ట్ ఫైల్ (content/ ఫోల్డర్)"],
+  ["ప్రచురణ", "GitHub Actions: మార్పు చేయగానే సైట్ దానంతట అదే తయారవుతుంది"],
+  ["గోప్యత", "మీరు టైప్ చేసేది ఎక్కడికీ వెళ్ళదు. అంతా మీ బ్రౌజర్‌లోనే"],
+  ["అందరికీ", "♿ బటన్: అక్షరాల పరిమాణం, కాంట్రాస్ట్, డిస్లెక్సియా ఫాంట్"],
 ];
 
 export default function About() {
   return (
     <section className="wrap">
-      <div lang="te">
-        <p className="kicker">గురించి</p>
-        <h1>{config.title} గురించి</h1>
-        <p className="lead">మిరియాల కుటుంబం రాసిన తెలుగు పద్యాలు, అందరూ చదవగలిగేలా.</p>
-        <ul className="cards">
-          {BOOKS.map((b) => (
-            <li key={b.id} className="card">
-              <strong>{b.title}</strong>
-              <span>రచయిత: {b.author}</span>
-              <span>{getPoems(b.id).length} పద్యాలు. {b.about}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <h2 className="poems-h2">Built with YuktAI</h2>
-      <p>Everything runs in the visitor&apos;s browser. Nothing they type is sent anywhere.</p>
+      <p className="kicker">గురించి</p>
+      <h1>{config.title} గురించి</h1>
+      <p className="lead">మిరియాల కుటుంబం రాసిన తెలుగు పద్యాలు, అందరూ చదవగలిగేలా, వినగలిగేలా.</p>
+      <ul className="cards">
+        {BOOKS.map((b) => (
+          <li key={b.id} className="card">
+            <strong>{b.title}</strong>
+            <span>రచయిత: {b.author}</span>
+            <span>{getPoems(b.id).length} పద్యాలు. {b.about}</span>
+          </li>
+        ))}
+      </ul>
+      <h2 className="poems-h2">ఈ సైట్ ఎలా తయారైంది</h2>
       <div className="table-box">
         <table>
-          <caption className="sr-only">What this site is built with</caption>
-          <thead><tr><th scope="col">Part</th><th scope="col">Tool</th></tr></thead>
-          <tbody>{STACK.map(([k, v]) => <tr key={k}><th scope="row">{k}</th><td>{v}</td></tr>)}</tbody>
+          <caption className="sr-only">ఈ సైట్ ఎలా తయారైంది</caption>
+          <tbody>{HOW.map(([k, v]) => <tr key={k}><th scope="row">{k}</th><td>{v}</td></tr>)}</tbody>
         </table>
       </div>
     </section>

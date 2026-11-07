@@ -16,7 +16,8 @@ import NavMenu from "./NavMenu";
 
 export default function Header() {
   const path = usePathname();
-  const { t, lang } = useUiText(APP_TEXT);
+  const { t } = useUiText(APP_TEXT);
+  const lang = "te"; // this site is Telugu only
   const here = (href: string) => {
     const page = href.split("#")[0];
     return page === "/" ? path === "/" : path.startsWith(page);
@@ -28,7 +29,7 @@ export default function Header() {
           <Logo />
           <span>{config.title}</span>
         </Link>
-        <nav className="topnav" aria-label="Main" lang={lang}>
+        <nav className="topnav" aria-label="ప్రధాన మెనూ" lang={lang}>
           {NAV.map((n) =>
             isGroup(n) ? (
               <NavMenu key={n.key} group={n} t={t} current={here} />

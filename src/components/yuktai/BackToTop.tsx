@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import { ArrowUpIcon } from "@yuktishaalaa/yuktai/icons";
 import { getMotion, useUiText } from "@yuktishaalaa/yuktai/experience";
+import { APP_TEXT } from "@/data/uiText";
 
 /** "Back to top": bottom right, appears after you scroll down. Moves focus to the top too. */
 export default function BackToTop() {
   const [show, setShow] = useState(false);
-  const { t, lang } = useUiText();
+  const { t } = useUiText(APP_TEXT);
+  const lang = "te"; // this site is Telugu only
 
   useEffect(() => {
     let frame = 0;

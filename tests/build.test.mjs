@@ -20,7 +20,7 @@ test("the app can be installed: manifest with name, start page and icons", { ski
 
 test("every page has a language, a title and a skip link", { skip: !has("index.html") && "run npm run build first" }, () => {
   const html = readFileSync(new URL("index.html", out), "utf8");
-  assert.match(html, /<html lang="en"/);
+  assert.match(html, /<html lang="te"/);
   assert.match(html, /<title>[^<]+<\/title>/);
-  assert.match(html, /Skip to content/);
+  assert.match(html, /విషయానికి వెళ్ళండి/);
 });
