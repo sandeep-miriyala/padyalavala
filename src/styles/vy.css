@@ -1,0 +1,136 @@
+/* వ్యాకరణమాల pages. Telugu needs a little more line height so vowel signs never touch,
+   and every button is at least 44 px tall for fingers (WCAG 2.5.5). */
+[lang="te"] { line-height: 1.8; }
+.vy-h2 { margin: 40px 0 12px; }
+.vy-h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 1.15rem; }
+.vy-h4 { margin: 12px 0 8px; font-size: 1rem; color: var(--muted); }
+.muted { color: var(--muted); }
+.note-box { margin: 0 0 20px; padding: 12px 16px; border: 1px solid var(--line-soft); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--panel); }
+.section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin: 32px 0 12px; }
+.section-head .vy-h2, .section-head .vy-h3 { margin: 0; }
+
+/* segmented buttons (filters, tabs) */
+.seg button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--text); font: 600 1rem var(--font); cursor: pointer; }
+.seg button[aria-pressed="true"], .seg button[aria-selected="true"] { background: var(--grad); border-color: transparent; color: var(--btn-text); }
+.seg button:focus-visible, .chip:focus-visible, .letter-card:focus-visible, .form-card:focus-visible, .word-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: 28px 0 16px; }
+.search-box { display: flex; align-items: center; gap: 8px; flex: 1 1 260px; min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.search-box input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); font: 1.05rem var(--font); }
+.search-box:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* chips: letters to pick */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-width: 48px; min-height: 48px; justify-content: center; padding: 0 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--text); font: 700 1.2rem var(--font); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--grad); border-color: transparent; color: var(--btn-text); }
+.chip-count { font-size: .8rem; font-weight: 600; opacity: .85; }
+.pick { height: auto; margin: 16px 0; }
+
+/* the big "focus" card on top: one letter or word */
+.focus { height: auto; gap: 14px; margin: 16px 0 8px; scroll-margin-top: 90px; }
+.focus-main { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.focus-letter { font-size: clamp(5rem, 22vw, 9rem); line-height: 1.2; font-weight: 800; color: var(--accent); }
+.focus-letter.word { font-size: clamp(3rem, 12vw, 5.5rem); }
+.focus-info { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.focus-word { font-size: 2rem; }
+.focus-img { width: 150px; height: auto; border-radius: 12px; border: 1px solid var(--line-soft); background: #fff; }
+.focus-tool { min-height: 60px; }
+.listen.icon-only { min-height: 44px; min-width: 44px; padding: 0; }
+
+/* letters */
+.letters { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 132px), 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.letter-card { display: flex; flex-direction: column; align-items: center; gap: 2px; width: 100%; height: 100%; padding: 10px 8px 12px; border: 1px solid var(--line-soft); border-radius: 16px; background: var(--panel); color: var(--text); font: inherit; cursor: pointer; transition: transform .15s, border-color .15s; }
+.letter-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.letter-card.on { border: 2px solid var(--accent); box-shadow: 0 0 0 3px var(--focus); }
+.letter-card img { width: 90px; height: 123px; object-fit: cover; border-radius: 10px; background: #fff; }
+.letter-noimg { display: grid; place-items: center; width: 90px; height: 123px; border-radius: 10px; background: var(--chip); color: var(--muted); font-size: 3rem; font-weight: 800; }
+.letter-big { font-size: 2.2rem; font-weight: 800; line-height: 1.3; color: var(--accent); }
+.letter-word { font-size: 1.05rem; }
+
+/* tracing */
+.trace { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.trace-box { position: relative; width: min(280px, 100%); aspect-ratio: 1; border: 2px dashed var(--line); border-radius: 16px; background: var(--panel2); }
+.trace-box canvas { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 14px; }
+.trace-pad { touch-action: none; cursor: crosshair; }
+.trace-result { display: flex; align-items: center; gap: 6px; min-height: 1.8em; margin: 4px 0; font-weight: 700; }
+.trace-result.good { color: var(--accent); }
+.trace-result.try { color: var(--text); }
+.sayit { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.sayit .hint { margin: 0; font-size: .85rem; }
+
+/* guninta forms */
+.forms { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 110px), 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.form-card { display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; padding: 10px 6px; border: 1px solid var(--line-soft); border-radius: 14px; background: var(--panel); color: var(--text); font: inherit; cursor: pointer; }
+.form-card:hover, .form-card.on { border-color: var(--accent); }
+.form-card.on { box-shadow: 0 0 0 3px var(--focus); }
+.form-big { font-size: 2.4rem; font-weight: 800; line-height: 1.35; color: var(--accent); }
+.form-sum { font-size: .95rem; }
+.form-name { font-size: .85rem; color: var(--muted); }
+
+/* words */
+.split { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.word-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.word-card { display: flex; flex-direction: column; gap: 2px; width: 100%; min-height: 72px; padding: 10px 14px; border: 1px solid var(--line-soft); border-radius: 14px; background: var(--panel); color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.word-card strong { font-size: 1.5rem; }
+.word-card span { font-size: .9rem; color: var(--muted); }
+.word-card:hover, .word-card.on { border-color: var(--accent); }
+.word-card.on { box-shadow: 0 0 0 3px var(--focus); }
+
+/* proverbs */
+.today { height: auto; margin: 16px 0; border-left: 5px solid var(--accent); }
+.sametha-big { margin: 4px 0 0; font-size: clamp(1.3rem, 4vw, 1.7rem); font-weight: 700; line-height: 1.7; }
+.sametha-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.sametha-list .card { height: auto; }
+.sametha { margin: 0; font-size: 1.2rem; font-weight: 600; }
+.sametha-list .btn-row, .today .btn-row { margin: 4px 0 0; }
+.today .btn-row .btn-row { margin: 0; }
+
+/* rules: sandhi and samasa */
+.rules { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 16px; }
+.rule { height: auto; gap: 10px; scroll-margin-top: 90px; }
+.rule:target { border-color: var(--accent); }
+.rule-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.rule-head h3 { margin: 0; font-size: 1.25rem; flex: 1 1 auto; }
+.rule-no { display: grid; place-items: center; min-width: 36px; height: 36px; border-radius: 10px; background: var(--grad); color: var(--btn-text); font-weight: 800; }
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; background: var(--chip); color: var(--text) !important; font-size: .85rem !important; font-weight: 600; }
+.rule-text { margin: 0; }
+.rule-parts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.rule-parts div { padding: 8px 10px; border-radius: 10px; background: var(--panel2); }
+.rule-parts dt { font-size: .8rem; color: var(--muted); }
+.rule-parts dd { margin: 0; font-weight: 700; }
+.examples { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.examples li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.subs summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 700; }
+.wrap-seg { gap: 8px; }
+
+/* detector */
+.detector { height: auto; margin: 16px 0 8px; gap: 10px; }
+.detector-form { display: flex; flex-direction: column; gap: 8px; }
+.detector-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.detector-row input { flex: 1 1 220px; min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); color: var(--text); font: 1.15rem var(--font); }
+.detector-row input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.detector .hint { margin: 0; }
+.detect-answer { margin: 8px 0; font-size: 1.15rem; }
+
+.soon { height: auto; margin: 32px 0; }
+.soon h2 { margin: 0 0 6px; }
+.vy-grid { margin-bottom: 24px; }
+
+@media (max-width: 560px) {
+  .rule-parts { grid-template-columns: 1fr; }
+  .focus-img { width: 120px; }
+}
+
+/* సాహిత్యం: శతకమాల, కథామాల, అంకితం */
+.padyam { margin: 0 0 12px; white-space: pre-line; font-size: 1.15rem; line-height: 2; }
+.padyam-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.padyam-card { height: auto; scroll-margin-top: 90px; }
+.padyam-card:target { border-color: var(--accent); box-shadow: 0 0 0 3px var(--focus); }
+.padyam-card .vy-h3 { color: var(--muted); font-size: 1rem; }
+.bhavam { margin: 0 0 12px; }
+.bhavam summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 700; }
+.bhavam p { margin: 0 0 8px; line-height: 1.9; }
+.katha p { margin: 0 0 6px; font-size: 1.2rem; line-height: 1.95; }
+.katha-cards .word-card strong { font-size: 1.25rem; }
+.ankitham { height: auto; gap: 12px; font-size: 1.1rem; line-height: 2; }
+.ankitham p { margin: 0; }

@@ -1,0 +1,103 @@
+{
+  "name": "రత్నాలబాల",
+  "short_name": "రత్నాలబాల",
+  "description": "రత్నాలబాల: an accessible web app built with YuktAI.",
+  "lang": "en",
+  "dir": "ltr",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "orientation": "any",
+  "background_color": "#9a3412",
+  "theme_color": "#9a3412",
+  "categories": [
+    "productivity",
+    "developer"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/monochrome-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "monochrome"
+    },
+    {
+      "src": "icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/wide.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "The app on a computer"
+    },
+    {
+      "src": "screenshots/narrow.png",
+      "sizes": "540x1080",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "The app on a phone"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Data grid",
+      "short_name": "Grid",
+      "description": "25 lakh rows, Grid AI Assistant",
+      "url": "./grid/",
+      "icons": [
+        {
+          "src": "icons/shortcut-grid.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "QA report",
+      "short_name": "QA",
+      "description": "15 accessibility checks",
+      "url": "./qa/",
+      "icons": [
+        {
+          "src": "icons/shortcut-qa.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
